@@ -9,11 +9,11 @@ npm run watch
 # Query mysql
 -- Tạo cơ sở dữ liệu
 
-CREATE DATABASE `management-lab-devlab_groupslab_groups`;
+CREATE DATABASE `management-lab-dev`;
 
 -- Sử dụng cơ sở dữ liệu vừa tạo
 
-USE `management-lab-dev`;
+use `management-lab-dev`;
 
 -- Tạo bảng lab_groups;
 
