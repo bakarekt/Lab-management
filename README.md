@@ -1,12 +1,12 @@
-# lab-management
-# before first run
+# Lab-management
+# Before first run
 npm install
-# run
+# Run
 npm start
-# edit css by scss
-npm run watch (in split terminal)
+# Edit css by scss (in split terminal)
+npm run watch 
 
-# query mysql
+# Query mysql
 -- Tạo cơ sở dữ liệu
 
 CREATE DATABASE `management-lab-devlab_groupslab_groups`;
