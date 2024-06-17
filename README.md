@@ -13,7 +13,7 @@ CREATE DATABASE `management-lab-devlab_groupslab_groups`;
 -- Sử dụng cơ sở dữ liệu vừa tạo
 USE `management-lab-dev`;
 
--- Tạo bảng lab_groups
+-- Tạo bảng lab_groups;
 CREATE TABLE lab_group (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
@@ -22,7 +22,7 @@ CREATE TABLE lab_group (
     updatedAt DATE NOT NULL
 );
 
--- Tạo bảng students với khóa ngoại liên kết tới bảng lab_group
+-- Tạo bảng students với khóa ngoại liên kết tới bảng lab_group;
 CREATE TABLE students (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
@@ -37,7 +37,7 @@ CREATE TABLE students (
     FOREIGN KEY (lab_group_id) REFERENCES lab_group(id)
 );
 
--- Tạo bảng projects
+-- Tạo bảng projects;
 CREATE TABLE projects (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
@@ -47,7 +47,7 @@ CREATE TABLE projects (
     image VARCHAR(255)
 );
 
--- Tạo bảng liên kết group_project để biểu diễn mối quan hệ nhiều-nhiều giữa lab_group và projects
+-- Tạo bảng liên kết group_project để biểu diễn mối quan hệ nhiều-nhiều giữa lab_group và projects;
 CREATE TABLE group_project (
     group_id INT,
     project_id INT,
