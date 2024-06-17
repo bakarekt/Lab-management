@@ -1,0 +1,32 @@
+<div class="mt-4">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Họ và tên</th>
+                <th scope="col">Email</th>
+                <th scope="col">Thành viên nhóm</th>
+                <th scope="col">Mã sinh viên</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each students}}
+            <tr>
+                <td>{{this.id}}</td>
+                <td>{{this.name}}</td>
+                <td>{{this.email}}</td>
+                <td>{{this.lab_group_id}}</td>
+                <td>{{this.mssv}}</td>
+                <td>
+                    <a href="/students/{{this.id}}/edit" class="btn btn-link">Sửa</a>
+                </td>
+                <td>
+                    <a href="" class="btn btn-link" data-toggle="modal" data-target="#delete-course-modal">Xóa</a>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>

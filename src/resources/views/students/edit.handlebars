@@ -1,0 +1,28 @@
+<div class="mt-4">
+    <h2 style="margin-bottom: 24px;">Cập nhật thông tin sinh viên</h2>
+    <form method="POST"  action="/students/{{student.id}}?_method=PUT">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputEmail4">Họ và tên</label>
+                <input value="{{student.name}}" name="name" id="name" type="text" class="form-control" >
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputEmail4">Email</label>
+                <input value="{{student.email}}" name="email" id="email" type="email" class="form-control" >
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputEmail4">Mã sinh viên</label>
+                <input value="{{student.mssv}}" name="mssv" id="mssv" type="text" class="form-control">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputEmail4">Thành viên nhóm</label>
+                <input value="{{student.lab_group_id}}" name="lab_group_id" id="lab_group_id" type="text" class="form-control">
+            </div>
+        </div>
+        
+
+        <button type="submit" class="btn btn-primary">Lưu Lại</button>
+    </form>
+</div>
