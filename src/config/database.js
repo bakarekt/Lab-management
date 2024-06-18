@@ -1,18 +1,37 @@
-const mysql = require('mysql');
+// config/database.js
+const { Sequelize } = require('sequelize');
 
-const connection = mysql.createConnection({
+// Khởi tạo kết nối đến cơ sở dữ liệu MySQL
+const sequelize = new Sequelize('management-lab-dev', 'root', '102112', {
   host: 'localhost',
-  user: 'root',
-  password: '102112',
-  database: 'management-lab-dev'
+  dialect: 'mysql',
+  logging: false
 });
 
-connection.connect((err) => {
-  if (err) {
-    console.error('Error connecting to the database: ' + err.stack);
-    return;
+// Định nghĩa các models
+// const Student = require('../app/models/studentModel')
+// const Group = require('../app/models/groupModel')
+// // Quan hệ
+// Group.hasMany(Student, {
+//   foreignKey: 'id',
+//   as:'students'
+// })
+// Student.belongsTo(Group, {
+//   foreignKey: 'id',
+//   as:'lab_groups'
+// })
+// Test kết nối
+async function testConnection() {
+  try {
+    await sequelize.authenticate();
+    console.log('Kết nối MySQL đã thiết lập thành công.');
+  } catch (error) {
+    console.error('Không thể kết nối đến MySQL:', error);
   }
-  console.log('Connected to database as id ' + connection.threadId);
-});
-
-module.exports = connection;
+}
+testConnection()
+// Xuất đối tượng kết nối Sequelize để sử dụng trong các module khác
+module.exports = {
+  sequelize,
+  testConnection
+};

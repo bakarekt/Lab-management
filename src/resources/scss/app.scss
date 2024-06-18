@@ -4,3 +4,15 @@
 .footer{
     margin-top: 500px;
 }
+.img-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px; /* Đặt kích thước của div */
+    height: 612px;
+    overflow: hidden; /* Ẩn phần ảnh bị vượt ra ngoài */
+}
+
+.test{
+    color: red;
+}

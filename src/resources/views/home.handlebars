@@ -1,32 +1,231 @@
 <div class="mt-4">
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Họ và tên</th>
-                <th scope="col">Email</th>
-                <th scope="col">Thành viên nhóm</th>
-                <th scope="col">Mã sinh viên</th>
-                <th scope="col"></th>
-                <th scope="col"></th>
-            </tr>
-        </thead>
-        <tbody>
-            {{#each students}}
-            <tr>
-                <td>{{this.id}}</td>
-                <td>{{this.name}}</td>
-                <td>{{this.email}}</td>
-                <td>{{this.lab_group_id}}</td>
-                <td>{{this.mssv}}</td>
-                <td>
-                    <a href="/students/{{this.id}}/edit" class="btn btn-link">Sửa</a>
-                </td>
-                <td>
-                    <a href="" class="btn btn-link" data-toggle="modal" data-target="#delete-course-modal">Xóa</a>
-                </td>
-            </tr>
-            {{/each}}
-        </tbody>
-    </table>
+  <h1>Team table</h1>
+  <table class="table">{{!-- Team table --}}
+    <thead>
+      <tr>
+        <th scope="col">STT</th>
+        <th scope="col">ID</th>
+        <th scope="col">Tên nhóm</th>
+        <th scope="col">Mô tả</th>
+        <th scope="col">Số thành viên</th>
+        <th scope="col">Đang làm dự án</th>
+        <th scope="col">ngày tạo</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each groups}}
+      <tr>
+        <td>{{sum @index 1}}</td>
+        <td>{{this.id}}</td>
+        <td>{{this.name}}</td>
+        <td>{{this.description}}</td>
+        <td>{{this.students.length}}</td>
+        <td>
+          {{#each this.projects}}
+          {{this.name}}{{#unless @last}}, {{/unless}}
+          {{/each}}
+        </td>
+        <td>{{this.createdAt}}</td>
+        <td>
+          <a href="/groups/{{this.id}}/edit" class="btn btn-link">Sửa</a>
+        </td>
+        <td>
+          <a href="" class="btn btn-link" data-toggle="modal" data-id="{{this.id}}"
+            data-target="#delete-groups-modal">Xóa</a>
+        </td>
+        <td>
+          <a href="/groups/details/{{this.id}}" class="btn btn-link">Chi tiết</a>
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  <h1>Project table</h1>
+  <table class="table">{{!-- Project table --}}
+    <thead>
+      <tr>
+        <th scope="col">STT</th>
+        <th scope="col">Tên dự án</th>
+        <th scope="col">Mô tả</th>
+        <th scope="col">Ngày tạo</th>
+        <th scope="col">Các nhóm thực hiện</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each projects}}
+      <tr>
+        <td>{{sum @index 1}}</td>
+        <td>{{this.name}}</td>
+        <td>{{this.description}}</td>
+        <td>{{this.createdAt}}</td>
+        <td>
+          {{#each this.lab_groups}}
+          {{this.name}}{{#unless @last}}, {{/unless}}
+          {{/each}}
+        </td>
+        <td>
+          <a href="/projects/{{this.id}}/edit" class="btn btn-link">Sửa</a>
+        </td>
+        <td>
+          <a href="" class="btn btn-link" data-toggle="modal" data-id="{{this.id}}"
+            data-target="#delete-projects-modal">Xóa</a>
+        </td>
+        <td>
+          <a href="/projects/details/{{this.id}}" class="btn btn-link">Chi tiết</a>
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  <h1>Student table</h1>
+  <table class="table">{{!-- Student table --}}
+    <thead>
+      <tr>
+        <th scope="col">STT</th>
+        <th scope="col">Họ và tên</th>
+        <th scope="col">Email</th>
+        <th scope="col">Thành viên nhóm</th>
+        <th scope="col">Mã sinh viên</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each students}}
+      <tr>
+        <td>{{sum @index 1}}</td>
+        <td>{{this.name}}</td>
+        <td>{{this.email}}</td>
+        <td>{{this.labGroupId}}</td>
+        <td>{{this.mssv}}</td>
+        <td>
+          <a href="/students/{{this.id}}/edit" class="btn btn-link">Sửa</a>
+        </td>
+        <td>
+          <a href="" class="btn btn-link" data-toggle="modal" data-id="{{this.id}}"
+            data-target="#delete-students-modal">Xóa</a>
+        </td>
+        <td>
+          <a href="/students/details/{{this.id}}" class="btn btn-link">Chi tiết</a>
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
 </div>
+
+<div> {{!-- DELETE STUDENT HANDLE --}}
+  <!-- Delete form -->
+  <div class="modal fade" id="delete-students-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">XÓA SINH VIÊN</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Bạn chắc chắn muốn xóa thành viên này?
+        </div>
+        <div class="modal-footer">
+          <button id="btn-delete-student" type="button" class="btn btn-danger">Xóa bỏ</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{!-- delete hidden form --}}
+  <form method="POST" name="delete-student-form" style="display:none;"></form>
+</div>
+
+<div> {{!-- DELETE GROUP HANDLE --}}
+  <!-- Delete form -->
+  <div class="modal fade" id="delete-groups-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">XÓA NHÓM NÀY?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Bạn chắc chắn muốn xóa nhóm này?
+        </div>
+        <div class="modal-footer">
+          <button id="btn-delete-group" type="button" class="btn btn-danger">Xóa bỏ</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{!-- delete hidden form --}}
+  <form method="POST" name="delete-group-form" style="display:none;"></form>
+</div>
+
+<div> {{!-- DELETE PROJECT HANDLE --}}
+  <!-- Delete form -->
+  <div class="modal fade" id="delete-projects-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">XÓA DỰ ÁN NÀY?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Bạn chắc chắn muốn xóa dự án này?
+        </div>
+        <div class="modal-footer">
+          <button id="btn-delete-project" type="button" class="btn btn-danger">Xóa bỏ</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{!-- delete hidden form --}}
+  <form method="POST" name="delete-project-form" style="display:none;"></form>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var deleteForm, itemId;
+    
+    function setupDeleteModal(modalId, formName, buttonId, urlPrefix) {
+      var modal = document.getElementById(modalId);
+      var deleteButton = document.getElementById(buttonId);
+      deleteForm = document.forms[formName];
+
+      if (modal && deleteButton && deleteForm) {
+        $(modal).on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget);
+          itemId = button.data('id');
+        });
+
+        deleteButton.onclick = function () {
+          if (deleteForm) {
+            deleteForm.action = urlPrefix + itemId + '?_method=DELETE';
+            deleteForm.submit();
+          } else {
+            console.error('Delete form not found');
+          }
+        };
+      }
+    }
+
+    setupDeleteModal('delete-students-modal', 'delete-student-form', 'btn-delete-student', '/students/');
+    setupDeleteModal('delete-groups-modal', 'delete-group-form', 'btn-delete-group', '/groups/');
+    setupDeleteModal('delete-projects-modal', 'delete-project-form', 'btn-delete-project', '/projects/');
+  });
+</script>

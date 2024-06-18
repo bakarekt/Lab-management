@@ -1,14 +1,34 @@
-const db = require('../../config/database.js');
-const { getAll, getById } = require('../../util/mysql');
+const { DataTypes, Model } = require('sequelize');
+const { sequelize } = require('../../config/database'); 
 
-class Project {
-  static getAll(callback) {
-      getAll('projects', callback);
-  }
+class Project extends Model {}
 
-  static getById(id, callback) {
-      getById('projects', id, callback);
-  }
-}
+Project.init({
+  name: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  description: {
+    type: DataTypes.STRING,
+  },
+  createdAt: {
+    type: DataTypes.DATE,
+    defaultValue: DataTypes.NOW,
+  },
+  updatedAt: {
+    type: DataTypes.DATE,
+    defaultValue: DataTypes.NOW,
+  },
+  image: {
+    type: DataTypes.STRING,
+  },
+}, {
+   sequelize,
+  modelName: 'projects'
+});
+
 
 module.exports = Project;
+
+
+
