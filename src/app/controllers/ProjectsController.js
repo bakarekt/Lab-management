@@ -70,8 +70,6 @@ class ProjectsController {
 
     // GET method students/create
     create(req, res, next) {
-
-
         res.render('./projects/create')
     }
     save(req, res, next) {
@@ -84,13 +82,17 @@ class ProjectsController {
     details(req, res, next) {
         Project.findByPk(req.params.id)
             .then(project => {
+                const isAdmin = req.session.student.isAdmin
                 if (!project) {
                     return res.status(404).send('ĐI LẠC R');
                 }
+                if (isAdmin) {
+                    res.render('./projects/details', { admin: true, student: req.session.student, project: sequelizeToObject(project), });
 
-                res.render('./projects/details', {
-                    project: sequelizeToObject(project),
-                });
+                } else {
+                    res.render('./projects/details', { admin: false, student: req.session.student, project: sequelizeToObject(project), });
+                }
+    
             })
             .catch(err => {
                 console.error('Lỗi khi tìm kiếm khóa học:', err);

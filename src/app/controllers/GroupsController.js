@@ -75,27 +75,28 @@ class GroupsController {
 
     // GET method students/create
     create(req, res, next) {
-
-
         res.render('./groups/create')
     }
     save(req, res, next) {
         Group.create(req.body)
             .then(() => res.redirect('/'))
             .catch(next)
-
     }
     // GET method students/details/:id
     details(req, res, next) {
         Group.findByPk(req.params.id)
-            .then(group => {
+        .then(group => {
+                const isAdmin = req.session.student.isAdmin
                 if (!group) {
                     return res.status(404).send('ĐI LẠC R');
                 }
+                if (isAdmin) {
+                    res.render('./groups/details', { admin: true, student: req.session.student, group: sequelizeToObject(group), });
 
-                res.render('./groups/details', {
-                    group: sequelizeToObject(group),
-                });
+                } else {
+                    res.render('./groups/details', { admin: false, student: req.session.student, group: sequelizeToObject(group), });
+                }
+
             })
             .catch(err => {
                 console.error('Lỗi khi tìm kiếm khóa học:', err);

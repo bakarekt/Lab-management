@@ -10,6 +10,7 @@ Student.init({
   mssv: {type: DataTypes.STRING(255), unique: true},
   description: {type: DataTypes.STRING(255), unique: true},
   image: {type: DataTypes.STRING(255), unique: true},
+  isAdmin: {type: DataTypes.STRING(255)},
   phoneNumber: {type: DataTypes.STRING(255), unique: true},
   createdAt: {type: DataTypes.DATE,defaultValue: DataTypes.NOW },
   updatedAt: {type: DataTypes.DATE,defaultValue: DataTypes.NOW }

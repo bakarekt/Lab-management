@@ -4,8 +4,11 @@ const Project = require('../models/projectModel');
 const { mutipleSequelizeToObject } = require('../../util/mysql');
 
 class SiteController {
-
-  async index(req, res, next) {
+  async login(req, res, next) {
+    if (!req.session.student) {
+      return res.redirect('/auth/login');
+    }
+    const isAdmin = req.session.student.isAdmin;
     try {
       const studentsData = await Student.findAll();
       const groupsData = await Group.findAll({
@@ -30,34 +33,19 @@ class SiteController {
       const students = mutipleSequelizeToObject(studentsData); // chuyển đổi không phải object -> object
       const groups = mutipleSequelizeToObject(groupsData);
       const projects = mutipleSequelizeToObject(projectsData);
-      // res.json(groups)
-      //  console.log(groups)
-      res.render('home', { students, groups, projects });
+      if (isAdmin) {
+        res.render('home', { layout: 'main', admin: true, student: req.session.student, students, groups, projects });
+  
+      } else {
+        res.render('home', { layout: 'main', admin: false, student: req.session.student, students, groups, projects });
+        
+      }
     } catch (err) {
       console.error('Error retrieving data:', err);
       res.status(500).send('Error retrieving data');
     }
+   
+
   }
-  // async index(req, res, next) {
-  //   try {
-  //     const studentsData = await Student.findAll();
-  //     const groupsData = await Group.findAll({
-  //       include: [{
-  //         model: Student,
-  //         as: 'students',
-  //       }, ],
-  //     });
-  //     const projectsData = await Project.findAll();
-
-  //     const students = mutipleSequelizeToObject(studentsData); // chuyển đổi không phải object -> object
-  //     const groups = mutipleSequelizeToObject(groupsData);
-  //     const projects = mutipleSequelizeToObject(projectsData);
-
-  //     res.render('home', { students, groups, projects });
-  //   } catch (err) {
-  //     console.error('Error retrieving data:', err);
-  //     res.status(500).send('Error retrieving data');
-  //   }
-  // }
 }
 module.exports = new SiteController()

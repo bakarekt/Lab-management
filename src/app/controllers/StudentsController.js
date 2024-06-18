@@ -50,10 +50,12 @@ class StudentsController {
             if (!student) {
                 return res.status(404).send('ĐI LẠC R');
             }
-            
-            res.render('./students/details', {
-                student: sequelizeToObject(student),
-            });
+            if (req.params.isAdmin) {
+                res.render('./students/details', { admin: true, student: req.session.student, student: sequelizeToObject(student), });
+
+            } else {
+                res.render('./students/details', { admin: false, student: req.session.student, student: sequelizeToObject(student), });
+            }
         })
         .catch(err => {
             console.error('Lỗi khi tìm kiếm khóa học:', err);

@@ -1,0 +1,97 @@
+{{> headerUserView}}
+<h1>Welcome, {{student.name}}</h1>
+<div class="mt-4">
+  <h1>Team table</h1>
+  <table class="table">{{!-- Team table --}}
+    <thead>
+      <tr>
+        <th scope="col">STT</th>
+        <th scope="col">ID</th>
+        <th scope="col">Tên nhóm</th>
+        <th scope="col">Mô tả</th>
+        <th scope="col">Số thành viên</th>
+        <th scope="col">Đang làm dự án</th>
+        <th scope="col">ngày tạo</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each groups}}
+      <tr>
+        <td>{{sum @index 1}}</td>
+        <td>{{this.id}}</td>
+        <td>{{this.name}}</td>
+        <td>{{this.description}}</td>
+        <td>{{this.students.length}}</td>
+        <td>
+          {{#each this.projects}}
+          {{this.name}}{{#unless @last}}, {{/unless}}
+          {{/each}}
+        </td>
+        <td>{{this.createdAt}}</td>
+        <td>
+          <a href="/groups/details/{{this.id}}" class="btn btn-link">Chi tiết</a>
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  <h1>Project table</h1>
+  <table class="table">{{!-- Project table --}}
+    <thead>
+      <tr>
+        <th scope="col">STT</th>
+        <th scope="col">Tên dự án</th>
+        <th scope="col">Mô tả</th>
+        <th scope="col">Ngày tạo</th>
+        <th scope="col">Các nhóm thực hiện</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each projects}}
+      <tr>
+        <td>{{sum @index 1}}</td>
+        <td>{{this.name}}</td>
+        <td>{{this.description}}</td>
+        <td>{{this.createdAt}}</td>
+        <td>
+          {{#each this.lab_groups}}
+          {{this.name}}{{#unless @last}}, {{/unless}}
+          {{/each}}
+        </td>
+        <td>
+          <a href="/projects/details/{{this.id}}" class="btn btn-link">Chi tiết</a>
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  <h1>Student table</h1>
+  <table class="table">{{!-- Student table --}}
+    <thead>
+      <tr>
+        <th scope="col">STT</th>
+        <th scope="col">Họ và tên</th>
+        <th scope="col">Email</th>
+        <th scope="col">Thành viên nhóm</th>
+        <th scope="col">Mã sinh viên</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each students}}
+      <tr>
+        <td>{{sum @index 1}}</td>
+        <td>{{this.name}}</td>
+        <td>{{this.email}}</td>
+        <td>{{this.labGroupId}}</td>
+        <td>{{this.mssv}}</td>
+        <td>
+          <a href="/students/details/{{this.id}}" class="btn btn-link">Chi tiết</a>
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+

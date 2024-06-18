@@ -8,18 +8,6 @@ const sequelize = new Sequelize('management-lab-dev', 'root', '102112', {
   logging: false
 });
 
-// Định nghĩa các models
-// const Student = require('../app/models/studentModel')
-// const Group = require('../app/models/groupModel')
-// // Quan hệ
-// Group.hasMany(Student, {
-//   foreignKey: 'id',
-//   as:'students'
-// })
-// Student.belongsTo(Group, {
-//   foreignKey: 'id',
-//   as:'lab_groups'
-// })
 // Test kết nối
 async function testConnection() {
   try {

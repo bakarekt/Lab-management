@@ -4,10 +4,20 @@ const exphbs  = require('express-handlebars')// html
 const route = require('./routes') // xử lý đường dẫn 
 const methodOverride = require('method-override')// ghi đè phương thức
 
-
+const session = require('express-session');
 
 const app = express()
 const port = 996
+
+
+app.use(session({
+    secret: 'secret_key',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { maxAge: 60000 }
+}));
+
+
 
 
 // middleware xử lý form

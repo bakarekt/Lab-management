@@ -1,3 +1,8 @@
+{{#if admin}}
+    {{> header}}
+{{else}}
+    {{> headerUserView}}
+{{/if}}
 <div class="content-details">
     <h1 class="name-details" style="text-align: center;">{{student.name}}</h1>
     <div>

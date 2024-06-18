@@ -17,3 +17,6 @@
 
 .test {
   color: red; }
+
+.extend-bar {
+  transform: translate(-70px, 7px); }
