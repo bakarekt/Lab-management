@@ -7,6 +7,9 @@ npm start
 npm run watch 
 
 # Query mysql
+
+Set up mysql in link: https://drive.google.com/file/d/1MjvESVyQR_AgovRXl_KEnkTnpnA7ydRt/view?usp=sharing
+
 -- Tạo cơ sở dữ liệu
 
 CREATE DATABASE `management-lab-dev`;
