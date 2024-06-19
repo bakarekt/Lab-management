@@ -62,3 +62,6 @@ CREATE TABLE group_projects (
     FOREIGN KEY (labGroupId) REFERENCES lab_groups(id),
     FOREIGN KEY (projectId) REFERENCES projects(id)
 );
+
+
+# Set up connection database
