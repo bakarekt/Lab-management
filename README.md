@@ -1,8 +1,10 @@
 # Lab-management
-<h2> Before first run<\h2>
+<h2> Before first run </h2>
 npm install
+
 # Run
 npm start
+
 # Edit css by scss (in split terminal)
 npm run watch 
 
@@ -10,7 +12,6 @@ npm run watch
 
 Set up mysql in link: https://drive.google.com/file/d/1MjvESVyQR_AgovRXl_KEnkTnpnA7ydRt/view?usp=sharing
 
-Process: https://pinnate-hourglass-9e7.notion.site/DRAFT-7876c1e07a79447db8639b6b28fdb743
 
 -- Tạo cơ sở dữ liệu
 
