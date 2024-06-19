@@ -65,3 +65,9 @@ CREATE TABLE group_projects (
 
 
 # Set up connection database
+<h2>src/config/database.js</h2>
+const sequelize = new Sequelize('management-lab-dev', 'yourusername', 'yourpassword', {
+    host: 'localhost',
+    dialect: 'mysql',
+    logging: false,
+});
