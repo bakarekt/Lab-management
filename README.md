@@ -1,5 +1,5 @@
 # Lab-management
-<h2> Before first run</h2>
+<h2> Before first run<\h2>
 npm install
 # Run
 npm start
