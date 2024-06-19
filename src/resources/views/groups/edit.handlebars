@@ -7,18 +7,26 @@
                 <label for="name">Tên nhóm</label>
                 <input name="name" value="{{group.name}}" id="name" type="text" class="form-control" required>
             </div>
+            <div style="display: none;"> 
+                <input name="id" value="{{group.id}}" id="id" type="text" class="form-control" required>
+            </div>
             <div class="form-group col-md-6">
                 <label for="projects">Project thực hiện</label>
-                {{#each group.projects}}
-                <input type="hidden" name="projects[{{@index}}][id]" value="{{this.id}}">
-                <input name="projects[{{@index}}][name]" value="{{this.name}}" id="project-{{@index}}" type="text" class="form-control" required>
+                {{#each projects}}
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <input type="checkbox" name="projects[]" value="{{this.id}}" 
+                            {{#if (isProjectInGroup this.id ../group.projects)}}checked{{/if}}>
+                        </div>
+                    </div>
+                    <input type="text" class="form-control" value="{{this.name}}" disabled>
+                </div>
                 {{/each}}
-                <div id="new-projects"></div>
-                <a href="/projects/create">Thêm dự án mới</a>
             </div>
         </div>
         <div class="form-row">
-             <div class="form-group col-md-12">
+            <div class="form-group col-md-12">
                 <label for="description">Mô tả</label>
                 <textarea name="description" id="description" class="form-control">{{group.description}}</textarea>
             </div>
@@ -26,5 +34,4 @@
         <button type="submit" class="btn btn-primary">Sửa</button>
     </form>
 </div>
-
 

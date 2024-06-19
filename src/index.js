@@ -38,7 +38,10 @@ app.get('/img/:folderName/:imageName', (req, res) => {
 });
 // template engine
 app.engine('handlebars', exphbs({
-  helpers: {sum: (a, b) => a + b,}
+  helpers:{
+    sum(a,b){return a + b},
+    isProjectInGroup (projectId, groupProjects) {return groupProjects.some(project => project.id === projectId)},
+  } 
 }));
 app.set('view engine', 'handlebars');
 app.set('views', path.join(__dirname, 'resources', 'views'));

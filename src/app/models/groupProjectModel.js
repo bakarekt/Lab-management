@@ -22,19 +22,40 @@
 // }
 
 // module.exports = GroupProject;
-const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = new Sequelize('sqlite::memory:');
-const GroupProject = sequelize.define('group_projects', {
-  labGroupId: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    primaryKey: true,
-  },
-  projectId: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    primaryKey: true,
-  },
-}, { timestamps: false });
+// const { Sequelize, DataTypes } = require('sequelize');
+// const sequelize = new Sequelize('sqlite::memory:');
+// const GroupProject = sequelize.define('group_projects', {
+//   labGroupId: {
+//     type: DataTypes.INTEGER,
+//     allowNull: false,
+//     primaryKey: true,
+//   },
+//   projectId: {
+//     type: DataTypes.INTEGER,
+//     allowNull: false,
+//     primaryKey: true,
+//   },
+// }, { timestamps: false });
+// module.exports = GroupProject;
+// models/groupProjectModel.js
+const { DataTypes } = require('sequelize');
+const { sequelize } = require('../../config/database');
+
+const GroupProject = sequelize.define('GroupProject', {
+    labGroupId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        primaryKey: true
+    },
+    projectId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        primaryKey: true
+    }
+}, {
+    timestamps: false,
+    tableName: 'group_projects'
+});
+
 module.exports = GroupProject;
 
