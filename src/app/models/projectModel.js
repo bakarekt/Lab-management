@@ -1,34 +1,33 @@
 const { DataTypes, Model } = require('sequelize');
-const { sequelize } = require('../../config/database'); 
+const { sequelize } = require('../../config/database');
 
 class Project extends Model {}
 
-Project.init({
-  name: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  description: {
-    type: DataTypes.STRING,
-  },
-  createdAt: {
-    type: DataTypes.DATE,
-    defaultValue: DataTypes.NOW,
-  },
-  updatedAt: {
-    type: DataTypes.DATE,
-    defaultValue: DataTypes.NOW,
-  },
-  image: {
-    type: DataTypes.STRING,
-  },
-}, {
-   sequelize,
-  modelName: 'projects'
-});
-
+Project.init(
+    {
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        description: {
+            type: DataTypes.STRING,
+        },
+        createdAt: {
+            type: DataTypes.DATE,
+            defaultValue: DataTypes.NOW,
+        },
+        updatedAt: {
+            type: DataTypes.DATE,
+            defaultValue: DataTypes.NOW,
+        },
+        image: {
+            type: DataTypes.STRING,
+        },
+    },
+    {
+        sequelize,
+        modelName: 'projects',
+    },
+);
 
 module.exports = Project;
-
-
-

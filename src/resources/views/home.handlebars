@@ -1,17 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Home</title>
-</head>
-<body>
-    {{#if admin}}
-        {{> header}}
-        <h1>Welcome, {{student.name}}</h1>
-        {{> viewAdmin}}
-    {{else}}
-        {{> viewUser}}
-    {{/if}}
-
-</body>
-</html>
+{{#if admin}}
+{{> header}}
+<h1>Welcome, {{student.name}}</h1>
+{{> viewAdmin}}
+{{else}}
+{{> viewUser}}
+{{/if}}

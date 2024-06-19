@@ -28,10 +28,16 @@ class AuthController {
 
                 return res.redirect('/');
             } else {
-                res.render('auth/login', { layout: 'main', error: 'Email hoặc MSSV không đúng' });
+                res.render('auth/login', {
+                    layout: 'main',
+                    error: 'Email hoặc MSSV không đúng',
+                });
             }
         } catch (error) {
-            res.render('auth/login', { layout: 'main', error: 'Đã có lỗi xảy ra' });
+            res.render('auth/login', {
+                layout: 'main',
+                error: 'Đã có lỗi xảy ra',
+            });
         }
     }
 

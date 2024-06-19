@@ -1,13 +1,16 @@
 const Student = require('../models/studentModel');
 const Group = require('../models/groupModel');
-const { mutipleSequelizeToObject, sequelizeToObject } = require('../../util/mysql');
-const { sequelize } = require('../../config/database')
+const {
+    mutipleSequelizeToObject,
+    sequelizeToObject,
+} = require('../../util/mysql');
+const { sequelize } = require('../../config/database');
 
 class StudentsController {
     // GET method students/:id/edit
     edit(req, res, next) {
         Student.findByPk(req.params.id)
-            .then(student => {
+            .then((student) => {
                 if (!student) {
                     return res.status(404).send('ĐI LẠC R');
                 }
@@ -15,7 +18,7 @@ class StudentsController {
                     student: sequelizeToObject(student),
                 });
             })
-            .catch(err => {
+            .catch((err) => {
                 console.error('Lỗi khi tìm kiếm khóa học:', err);
                 next(err);
             });
@@ -26,53 +29,61 @@ class StudentsController {
 
         // Kiểm tra sự tồn tại của nhóm
         Group.findByPk(groupId)
-            .then(group => {
+            .then((group) => {
                 if (!group) {
                     return res.status(404).send('Nhóm không tồn tại');
                 }
 
                 // Nhóm tồn tại, tiến hành cập nhật
-                return Student.update(req.body, { where: { id: req.params.id } })
+                return Student.update(req.body, {
+                    where: { id: req.params.id },
+                });
             })
             .then(() => res.redirect('/'))
-            .catch(next)
+            .catch(next);
     }
     // DELETE method students/:id
     destroy(req, res, next) {
         Student.destroy({ where: { id: req.params.id } })
             .then(() => res.redirect('back'))
-            .catch(next)
+            .catch(next);
     }
 
     // GET method students/create
     create(req, res, next) {
-        res.render('./students/create')
+        res.render('./students/create');
     }
     save(req, res, next) {
         Student.create(req.body)
             .then(() => res.redirect('/'))
-            .catch(next)
-
+            .catch(next);
     }
     // GET method students/details/:id
     details(req, res, next) {
         Student.findByPk(req.params.id)
-            .then(student => {
+            .then((student) => {
                 if (!student) {
                     return res.status(404).send('ĐI LẠC R');
                 }
                 if (req.params.isAdmin) {
-                    res.render('./students/details', { admin: true, student: req.session.student, student: sequelizeToObject(student), });
-
+                    res.render('./students/details', {
+                        admin: true,
+                        student: req.session.student,
+                        student: sequelizeToObject(student),
+                    });
                 } else {
-                    res.render('./students/details', { admin: false, student: req.session.student, student: sequelizeToObject(student), });
+                    res.render('./students/details', {
+                        admin: false,
+                        student: req.session.student,
+                        student: sequelizeToObject(student),
+                    });
                 }
             })
-            .catch(err => {
+            .catch((err) => {
                 console.error('Lỗi khi tìm kiếm khóa học:', err);
                 next(err);
             });
     }
 }
 
-module.exports = new StudentsController()
+module.exports = new StudentsController();

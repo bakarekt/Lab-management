@@ -1,8 +1,9 @@
-.footer-img{
+.footer-img {
     height: 200px;
+    opacity: 0.5;
 }
-.footer{
-    margin-top: 500px;
+.footer {
+    margin-top: 125px;
 }
 .img-details {
     display: flex;
@@ -13,9 +14,9 @@
     overflow: hidden; /* Ẩn phần ảnh bị vượt ra ngoài */
 }
 
-.test{
+.test {
     color: red;
 }
-.extend-bar{
+.extend-bar {
     transform: translate(-70px, 7px);
 }
