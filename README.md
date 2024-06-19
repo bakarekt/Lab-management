@@ -71,3 +71,6 @@ npm start
 
 # Edit css by scss (in split terminal)
 npm run watch
+
+# Beauty the code (in split terminal)
+npm run beautiful
