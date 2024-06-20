@@ -89,3 +89,96 @@ npm run watch
 ```bash
 npm run beautiful
 ```
+
+## Project structure
+
+```txt
+│   package.json
+│   README.md
+│
+└───src
+    │   index.js
+    │
+    ├───app
+    │   ├───controllers
+    │   │       AuthController.js
+    │   │       GroupsController.js
+    │   │       NewsController.js
+    │   │       ProjectsController.js
+    │   │       SiteController.js
+    │   │       StudentsController.js
+    │   │
+    │   └───models
+    │           groupModel.js
+    │           groupProjectModel.js
+    │           projectModel.js
+    │           studentModel.js
+    │
+    ├───config
+    │       database.js
+    │
+    ├───public
+    │   ├───css
+    │   │       app.css
+    │   │
+    │   └───img
+    │       │   ico.png
+    │       │   ryo_yamada.png
+    │       │
+    │       ├───projects
+    │       │       DESKTOP_CAM.png
+    │       │       DESKTOP_TRANG.png
+    │       │
+    │       └───students
+    │               Quang.jpg
+    │               ryo_yamada.png
+    │
+    ├───resources
+    │   ├───scss
+    │   │       app.scss
+    │   │
+    │   └───views
+    │       │   home.handlebars
+    │       │   news.handlebars
+    │       │
+    │       ├───auth
+    │       │       login.handlebars
+    │       │
+    │       ├───groups
+    │       │       create.handlebars
+    │       │       details.handlebars
+    │       │       edit.handlebars
+    │       │
+    │       ├───layouts
+    │       │       main.handlebars
+    │       │
+    │       ├───partials
+    │       │       footer.handlebars
+    │       │       header.handlebars
+    │       │       headerUserView.handlebars
+    │       │       viewAdmin.handlebars
+    │       │       viewUser.handlebars
+    │       │
+    │       ├───projects
+    │       │       create.handlebars
+    │       │       details.handlebars
+    │       │       edit.handlebars
+    │       │
+    │       └───students
+    │               create.handlebars
+    │               details.handlebars
+    │               edit.handlebars
+    │
+    ├───routes
+    │       auth.js
+    │       groups.js
+    │       index.js
+    │       news.js
+    │       projects.js
+    │       site.js
+    │       students.js
+    │
+    └───util
+            mysql.js
+```
+
