@@ -63,7 +63,7 @@ CREATE TABLE group_projects (
 
 ## Set up connection database
 ```javascript
-<h2>src/config/database.js</h2>
+// src/config/database.js
 const sequelize = new Sequelize('management-lab-dev', 'yourusername', 'yourpassword', {
     host: 'localhost',
     dialect: 'mysql',
