@@ -56,7 +56,7 @@ CREATE TABLE group_projects (
 
 ```
 ### Database like
-![Mô tả ảnh](![Mô tả ảnh](https://example.com/path/to/image.png)
+![Mô tả ảnh](![Mô tả ảnh](z4LyunFoYKo9FiKy8cozANWHPO6VU7x7fmqUsnOpORRQktRmqeUAVb_nF835AwNpNPZcMJf1Hm1Lw5sQCCF6IKI)
 
 
 
