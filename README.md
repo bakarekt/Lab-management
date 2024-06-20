@@ -94,8 +94,9 @@ npm run beautiful
 
 ```txt
 │   package.json
+│   package-lock.json
 │   README.md
-│
+├───node_modules
 └───src
     │   index.js
     │
