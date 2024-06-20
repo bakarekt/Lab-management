@@ -56,7 +56,8 @@ CREATE TABLE group_projects (
 
 ```
 ### Database like
-![Mô tả ảnh](![Mô tả ảnh]()
+![Mô tả ảnh](https://github.com/Quanghusst/Lab-management/blob/main/database%20lab%20management.png)
+
 
 
 
