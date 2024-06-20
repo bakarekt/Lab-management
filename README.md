@@ -8,7 +8,10 @@ Set up mysql in link: https://drive.google.com/file/d/1MjvESVyQR_AgovRXl_KEnkTnp
 
 -- Tạo cơ sở dữ liệu
 
+```mysql
 CREATE DATABASE management-lab-dev;
+```
+
 
 -- Sử dụng cơ sở dữ liệu vừa tạo
 USE management-lab-dev;
@@ -67,10 +70,18 @@ const sequelize = new Sequelize('management-lab-dev', 'yourusername', 'yourpassw
 });
 
 # Run
+```bash
 npm start
+```
+
 
 # Edit css by scss (in split terminal)
+```bash
 npm run watch
+```
+
 
 # Beauty the code (in split terminal)
+```bash
 npm run beautiful
+```
