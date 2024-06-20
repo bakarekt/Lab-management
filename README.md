@@ -1,14 +1,19 @@
 # Mục lục
-- [Instruct](#Instruct)
-  - [Query mysql](##Query-mysql)
-    - [Create database](###Create-database)
-    - [Database like](###Database-like)
-  -[Set up connection database](##Set-up-connection-database)
-  -[Before first run](##Set-up-connection-database)
-  -[Run](##Run)
-  -[Edit css by scss (in split terminal)](##Edit-css-by-scss-(in-split-terminal))
-  -[Beauty the code (in split terminal)](##Beauty-the-code-(in-split-terminal))
-  -[Project structure](##Project-structure)
+# Mục lục
+- [Giới thiệu](#giới-thiệu)
+  - [Mục tiêu](#mục-tiêu)
+  - [Tính năng](#tính-năng)
+- [Cài đặt](#cài-đặt)
+  - [Yêu cầu](#yêu-cầu)
+  - [Hướng dẫn cài đặt](#hướng-dẫn-cài-đặt)
+
+# Giới thiệu
+## Mục tiêu
+## Tính năng
+# Cài đặt
+## Yêu cầu
+## Hướng dẫn cài đặt
+
 
 # Instruct
 
