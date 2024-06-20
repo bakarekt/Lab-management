@@ -1,4 +1,4 @@
-# Mục lục
+# Index
 - [Instruct](#instruct)
   - [Query mysql](#query-mysql)
     - [Create database](#create-database)
