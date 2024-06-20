@@ -1,9 +1,9 @@
-#Instruct
-##Before first run
+# Instruct
+## Before first run
 ```bash
 npm install 
 ```
-##Query mysql
+## Query mysql
 
 Set up mysql in link: https://drive.google.com/file/d/1MjvESVyQR_AgovRXl_KEnkTnpnA7ydRt/view?usp=sharing
 
