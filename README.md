@@ -1,8 +1,9 @@
-# Instruct
-<h2> Before first run </h2>
+#Instruct
+##Before first run
+```bash
 npm install 
-
-# Query mysql
+```
+##Query mysql
 
 Set up mysql in link: https://drive.google.com/file/d/1MjvESVyQR_AgovRXl_KEnkTnpnA7ydRt/view?usp=sharing
 
@@ -10,10 +11,6 @@ Set up mysql in link: https://drive.google.com/file/d/1MjvESVyQR_AgovRXl_KEnkTnp
 
 ```mysql
 CREATE DATABASE management-lab-dev;
-```
-
-
--- Sử dụng cơ sở dữ liệu vừa tạo
 USE management-lab-dev;
 
 -- Tạo bảng lab_groups
@@ -60,28 +57,33 @@ CREATE TABLE group_projects (
     FOREIGN KEY (projectId) REFERENCES projects(id)
 );
 
+```
 
-# Set up connection database
+
+
+## Set up connection database
+```javascript
 <h2>src/config/database.js</h2>
 const sequelize = new Sequelize('management-lab-dev', 'yourusername', 'yourpassword', {
     host: 'localhost',
     dialect: 'mysql',
     logging: false,
 });
+```
 
-# Run
+## Run
 ```bash
 npm start
 ```
 
 
-# Edit css by scss (in split terminal)
+## Edit css by scss (in split terminal)
 ```bash
 npm run watch
 ```
 
 
-# Beauty the code (in split terminal)
+## Beauty the code (in split terminal)
 ```bash
 npm run beautiful
 ```
