@@ -3,12 +3,12 @@
   - [Query mysql](##Query-mysql)
     - [Create database](###Create-database)
     - [Database like](###Database-like)
-    -[Set up connection database](##Set-up-connection-database)
-    -[Before first run](##Set-up-connection-database)
-    -[Run](##Run)
-    -[Edit css by scss (in split terminal)](##Edit-css-by-scss-(in-split-terminal))
-    -[Beauty the code (in split terminal)](##Beauty-the-code-(in-split-terminal))
-    -[Project structure](##Project-structure)
+  -[Set up connection database](##Set-up-connection-database)
+  -[Before first run](##Set-up-connection-database)
+  -[Run](##Run)
+  -[Edit css by scss (in split terminal)](##Edit-css-by-scss-(in-split-terminal))
+  -[Beauty the code (in split terminal)](##Beauty-the-code-(in-split-terminal))
+  -[Project structure](##Project-structure)
 
 # Instruct
 
