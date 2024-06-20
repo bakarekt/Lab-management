@@ -7,13 +7,13 @@ npm install
 
 Set up mysql in link: https://drive.google.com/file/d/1MjvESVyQR_AgovRXl_KEnkTnpnA7ydRt/view?usp=sharing
 
--- Tạo cơ sở dữ liệu
+-- Create database
 
 ```mysql
 CREATE DATABASE management-lab-dev;
 USE management-lab-dev;
 
--- Tạo bảng lab_groups
+-- Create lab_groups table
 CREATE TABLE lab_groups (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
@@ -22,7 +22,7 @@ CREATE TABLE lab_groups (
     updatedAt DATE NOT NULL
 );
 
--- Tạo bảng projects
+-- Create projects table
 CREATE TABLE projects (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
@@ -32,7 +32,7 @@ CREATE TABLE projects (
     image VARCHAR(255)
 );
 
--- Tạo bảng students
+-- Create students table
 CREATE TABLE students (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
