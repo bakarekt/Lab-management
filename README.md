@@ -4,7 +4,7 @@
 
 Set up mysql in link: https://drive.google.com/file/d/1MjvESVyQR_AgovRXl_KEnkTnpnA7ydRt/view?usp=sharing
 
--- Create database
+### Create database
 
 ```mysql
 CREATE DATABASE management-lab-dev;
