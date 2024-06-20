@@ -10,13 +10,6 @@
   - [Beauty the code (in split terminal)](#beauty-the-code-in-split-terminal)
   - [Project structure](#project-structure)
 
-# Giới thiệu
-## Mục tiêu
-## Tính năng
-# Cài đặt
-## Yêu cầu
-## Hướng dẫn cài đặt
-
 # Instruct
 
 ## Query mysql
