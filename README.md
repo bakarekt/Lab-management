@@ -56,7 +56,7 @@ CREATE TABLE group_projects (
 
 ```
 ### Database like
-![Mô tả ảnh](![Mô tả ảnh](z4LyunFoYKo9FiKy8cozANWHPO6VU7x7fmqUsnOpORRQktRmqeUAVb_nF835AwNpNPZcMJf1Hm1Lw5sQCCF6IKI)
+![Mô tả ảnh](![Mô tả ảnh]([z4LyunFoYKo9FiKy8cozANWHPO6VU7x7fmqUsnOpORRQktRmqeUAVb_nF835AwNpNPZcMJf1Hm1Lw5sQCCF6IKI](https://lh6.googleusercontent.com/z4LyunFoYKo9FiKy8cozANWHPO6VU7x7fmqUsnOpORRQktRmqeUAVb_nF835AwNpNPZcMJf1Hm1Lw5sQCCF6IKI))
 
 
 
