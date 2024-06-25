@@ -11,7 +11,7 @@
   - [Project structure](#project-structure)
 
 # Instruct
-
+# Node js 14.7.0
 ## Query mysql
 
 Set up mysql in link: [Setup MySQL](https://drive.google.com/file/d/1MjvESVyQR_AgovRXl_KEnkTnpnA7ydRt/view?usp=sharing)
