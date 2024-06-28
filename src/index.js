@@ -3,11 +3,17 @@ const path = require('path'); // thư viện xử lý đường dẫn
 const exphbs = require('express-handlebars'); // html
 const route = require('./routes'); // xử lý đường dẫn
 const methodOverride = require('method-override'); // ghi đè phương thức
-
+const Handlebars = require('handlebars');
 const session = require('express-session');
+
+
 
 const app = express();
 const port = 996;
+
+
+
+
 
 app.use(
     session({
@@ -46,6 +52,11 @@ app.engine(
                 return groupProjects.some(
                     (project) => project.id === projectId,
                 );
+            },
+            breaklines(text) {
+                text = Handlebars.Utils.escapeExpression(text);
+                text = text.replace(/(\r\n|\n|\r)/gm, '<br>');
+                return new Handlebars.SafeString(text);
             },
         },
     }),

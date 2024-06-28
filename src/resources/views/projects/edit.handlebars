@@ -1,11 +1,15 @@
 {{> header}}
 <div class="mt-4">
     <h2 style="margin-bottom: 24px;">Sửa project</h2>
-    <form method="POST" action="/projects/{{project.id}}?_method=PUT">
+    <form method="POST" action="/projects/{{project.id}}?_method=PUT" enctype="multipart/form-data">
         <div class="form-row">
             <div class="form-project col-md-6">
                 <label for="name">Tên project</label>
                 <input name="name" value="{{project.name}}" id="name" type="text" class="form-control" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="image">Ảnh</label>
+                <input name="image" id="image" type="file" class="form-control">
             </div>
         </div>
         <div class="form-row">
@@ -14,6 +18,7 @@
                 <textarea name="description" id="description" class="form-control">{{project.description}}</textarea>
             </div>
         </div>
+       
         <button type="submit" class="btn btn-primary">Sửa</button>
     </form>
 </div>

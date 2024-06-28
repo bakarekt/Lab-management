@@ -42,6 +42,7 @@ class ProjectsController {
     }
     // PUT method students/:id
     submit(req, res, next) {
+        req.body.image = req.file.filename
         sequelize.transaction(async (t) => {
             try {
                 const projectId = req.params.id;
@@ -98,37 +99,72 @@ class ProjectsController {
         res.render('./projects/create');
     }
     save(req, res, next) {
+        req.body.image = req.file.filename
         Project.create(req.body)
             .then(() => res.redirect('/'))
             .catch(next);
     }
     // GET method students/details/:id
+    // details(req, res, next) {
+    //     Project.findByPk(req.params.id)
+    //         .then((project) => {
+
+    //             if (!project) {
+    //                 return res.status(404).send('ĐI LẠC R');
+    //             }
+
+    //                 res.render('./projects/details', {
+
+    //                     project: sequelizeToObject(project),
+    //                 });
+
+
+    //         })
+    //         .catch((err) => {
+    //             console.error('Lỗi khi tìm kiếm khóa học:', err);
+    //             next(err);
+    //         });
+    // }
     details(req, res, next) {
-        Project.findByPk(req.params.id)
-            .then((project) => {
-                const isAdmin = req.session.student.isAdmin;
+        const projectId = req.params.id;
+    
+        // Tìm dự án theo khóa chính của nó
+        const findProject = Project.findByPk(projectId);
+    
+        // Tìm tất cả các liên kết nhóm-dự án liên quan đến dự án
+        const findGroupProjects = GroupProject.findAll({
+            where: { projectId: projectId }
+        });
+    
+        Promise.all([findProject, findGroupProjects])
+            .then(([project, groupProjects]) => {
                 if (!project) {
-                    return res.status(404).send('ĐI LẠC R');
+                    return res.status(404).send('Không tìm thấy dự án');
                 }
-                if (isAdmin) {
-                    res.render('./projects/details', {
-                        admin: true,
-                        student: req.session.student,
-                        project: sequelizeToObject(project),
-                    });
-                } else {
-                    res.render('./projects/details', {
-                        admin: false,
-                        student: req.session.student,
-                        project: sequelizeToObject(project),
-                    });
-                }
+    
+                // Lấy danh sách các ID nhóm từ các liên kết nhóm-dự án
+                const groupIds = groupProjects.map(gp => gp.labGroupId);
+    
+                // Tìm tất cả các nhóm tham gia vào dự án
+                return Promise.all([
+                    project,
+                    Group.findAll({
+                        where: { id: groupIds }
+                    })
+                ]);
+            })
+            .then(([project, groups]) => {
+                res.render('./projects/details', {
+                    project: sequelizeToObject(project),
+                    groups: groups.map(group => sequelizeToObject(group))
+                });
             })
             .catch((err) => {
-                console.error('Lỗi khi tìm kiếm khóa học:', err);
+                console.error('Lỗi khi tìm kiếm dự án hoặc nhóm:', err);
                 next(err);
             });
     }
+    
 }
 
 module.exports = new ProjectsController();

@@ -1,7 +1,7 @@
 {{#if admin}}
-    {{> header}}
+{{> header}}
 {{else}}
-    {{> headerUserView}}
+{{> headerUserView}}
 {{/if}}
 <div class="content-details">
     <h1 class="name-details" style="text-align: center;">{{project.name}}</h1>
@@ -11,8 +11,32 @@
         </div>
         <div>
             <h2>Mô tả</h2>
-            <p> {{project.description}}</p>
+            <p> {{breaklines project.description}}</p>
             <p>Ngày tạo: {{project.createdAt}}</p>
+            <h2>Nhóm thực hiện</h2>
+            <table class="table">{{!-- Team table --}}
+                <thead>
+                    <tr>
+                        <th scope="col">STT</th>
+                        <th scope="col">ID</th>
+                        <th scope="col">Tên nhóm</th>
+                        <th scope="col">Mô tả</th>
+                        <th scope="col">ngày tạo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each groups}}
+                    <tr>
+                        <td>{{sum @index 1}}</td>
+                        <td>{{this.id}}</td>
+                        <td>{{this.name}}</td>
+                        <td>{{breaklines this.description}}</td>
+                        <td>{{this.createdAt}}</td>
+                        
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

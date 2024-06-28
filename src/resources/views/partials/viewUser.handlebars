@@ -12,6 +12,7 @@
         <th scope="col">Số thành viên</th>
         <th scope="col">Đang làm dự án</th>
         <th scope="col">ngày tạo</th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
@@ -20,7 +21,7 @@
         <td>{{sum @index 1}}</td>
         <td>{{this.id}}</td>
         <td>{{this.name}}</td>
-        <td>{{this.description}}</td>
+        <td>{{breaklines this.description}}</td>
         <td>{{this.students.length}}</td>
         <td>
           {{#each this.projects}}
@@ -45,6 +46,7 @@
         <th scope="col">Mô tả</th>
         <th scope="col">Ngày tạo</th>
         <th scope="col">Các nhóm thực hiện</th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
@@ -52,7 +54,7 @@
       <tr>
         <td>{{sum @index 1}}</td>
         <td>{{this.name}}</td>
-        <td>{{this.description}}</td>
+        <td>{{breaklines this.description}}</td>
         <td>{{this.createdAt}}</td>
         <td>
           {{#each this.lab_groups}}
@@ -74,8 +76,11 @@
         <th scope="col">STT</th>
         <th scope="col">Họ và tên</th>
         <th scope="col">Email</th>
+        {{!-- <th scope="col">Mô tả</th> --}}
         <th scope="col">Thành viên nhóm</th>
         <th scope="col">Mã sinh viên</th>
+        <th scope="col"></th>
+
       </tr>
     </thead>
     <tbody>
@@ -84,6 +89,7 @@
         <td>{{sum @index 1}}</td>
         <td>{{this.name}}</td>
         <td>{{this.email}}</td>
+        {{!-- <td>{{breaklines this.description}}</td> --}}
         <td>{{this.labGroupId}}</td>
         <td>{{this.mssv}}</td>
         <td>

@@ -2,7 +2,7 @@
 const { Sequelize } = require('sequelize');
 
 // Khởi tạo kết nối đến cơ sở dữ liệu MySQL
-const sequelize = new Sequelize('management-lab-dev', 'root', '102112', {
+const sequelize = new Sequelize('management_lab_dev', 'root', '102112', {
     host: 'localhost',
     dialect: 'mysql',
     logging: false,

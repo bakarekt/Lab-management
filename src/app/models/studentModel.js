@@ -7,9 +7,8 @@ Student.init(
     {
         name: { type: DataTypes.STRING(100) },
         email: { type: DataTypes.STRING(100), unique: true },
-        // lab_group_id: {type: DataTypes.INTEGER, unique: true},
         mssv: { type: DataTypes.STRING(255), unique: true },
-        description: { type: DataTypes.STRING(255), unique: true },
+        description: { type: DataTypes.TEXT, unique: true },
         image: { type: DataTypes.STRING(255), unique: true },
         isAdmin: { type: DataTypes.STRING(255) },
         phoneNumber: { type: DataTypes.STRING(255), unique: true },

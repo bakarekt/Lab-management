@@ -33,7 +33,7 @@ class StudentsController {
                 if (!group) {
                     return res.status(404).send('Nhóm không tồn tại');
                 }
-
+                req.body.image = req.file.filename
                 // Nhóm tồn tại, tiến hành cập nhật
                 return Student.update(req.body, {
                     where: { id: req.params.id },
@@ -48,12 +48,13 @@ class StudentsController {
             .then(() => res.redirect('back'))
             .catch(next);
     }
-
     // GET method students/create
     create(req, res, next) {
         res.render('./students/create');
     }
     save(req, res, next) {
+        // res.json(req.body)
+        req.body.image = req.file.filename
         Student.create(req.body)
             .then(() => res.redirect('/'))
             .catch(next);
@@ -87,3 +88,4 @@ class StudentsController {
 }
 
 module.exports = new StudentsController();
+

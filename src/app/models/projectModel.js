@@ -10,7 +10,7 @@ Project.init(
             allowNull: false,
         },
         description: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
         },
         createdAt: {
             type: DataTypes.DATE,

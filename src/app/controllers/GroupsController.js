@@ -129,25 +129,26 @@ class GroupsController {
     }
     // GET method students/details/:id
     details(req, res, next) {
-        Group.findByPk(req.params.id)
-            .then((group) => {
-                const isAdmin = req.session.student.isAdmin;
+        const groupId = req.params.id;
+
+        // Find the group by its primary key
+        const findGroup = Group.findByPk(groupId);
+
+        // Find all students related to the group
+        const findStudents = Student.findAll({
+            where: { labGroupId: groupId }
+        });
+
+        Promise.all([findGroup, findStudents])
+            .then(([group, students]) => {
                 if (!group) {
                     return res.status(404).send('ĐI LẠC R');
                 }
-                if (isAdmin) {
-                    res.render('./groups/details', {
-                        admin: true,
-                        student: req.session.student,
-                        group: sequelizeToObject(group),
-                    });
-                } else {
-                    res.render('./groups/details', {
-                        admin: false,
-                        student: req.session.student,
-                        group: sequelizeToObject(group),
-                    });
-                }
+                res.render('./groups/details', {
+              
+                    group: sequelizeToObject(group),
+                    students: students.map(student => sequelizeToObject(student))
+                });
             })
             .catch((err) => {
                 console.error('Lỗi khi tìm kiếm khóa học:', err);
