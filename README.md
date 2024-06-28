@@ -19,14 +19,14 @@ Set up mysql in link: [Setup MySQL](https://drive.google.com/file/d/1MjvESVyQR_A
 ### Create database
 
 ```mysql
-CREATE DATABASE management-lab-dev;
-USE management-lab-dev;
+CREATE DATABASE management_lab_dev;
+USE management_lab_dev;
 
 -- Create lab_groups table
 CREATE TABLE lab_groups (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
-    description VARCHAR(255),
+    description TEXT,
     createdAt DATE NOT NULL,
     updatedAt DATE NOT NULL
 );
@@ -35,7 +35,7 @@ CREATE TABLE lab_groups (
 CREATE TABLE projects (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
-    description VARCHAR(255),
+    description TEXT,
     createdAt DATE NOT NULL,
     updatedAt DATE NOT NULL,
     image VARCHAR(255)
@@ -50,7 +50,7 @@ CREATE TABLE students (
     mssv VARCHAR(255),
     createdAt DATE NOT NULL,
     updatedAt DATE NOT NULL,
-    description VARCHAR(255),
+    description TEXT,
     phoneNumber VARCHAR(20),
     image VARCHAR(255),
     isAdmin TINYINT,
