@@ -76,7 +76,7 @@ CREATE TABLE group_projects (
 Fix your mysql [username](https://github.com/Quanghusst/Lab-management/blob/main/database%20lab%20management.png) and [password](https://github.com/Quanghusst/Lab-management/blob/main/database%20lab%20management.png)
 ```javascript
 // src/config/database.js
-const sequelize = new Sequelize('management-lab-dev', 'username', 'password', {
+const sequelize = new Sequelize('management_lab_dev', 'username', 'password', {
     host: 'localhost',
     dialect: 'mysql',
     logging: false,
