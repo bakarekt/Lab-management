@@ -1,17 +1,16 @@
 {{> headerUserView}}
-<h1>Welcome, {{student.name}}</h1>
-<div class="mt-4">
+<div class="container content-body">
   <h1>Team table</h1>
-  <table class="table">{{!-- Team table --}}
+  <table class="table custome-table">{{!-- Team table --}}
     <thead>
       <tr>
         <th scope="col">STT</th>
         <th scope="col">ID</th>
         <th scope="col">Tên nhóm</th>
-        <th scope="col">Mô tả</th>
+        <th class="text-center" scope="col">Mô tả</th>
         <th scope="col">Số thành viên</th>
-        <th scope="col">Đang làm dự án</th>
-        <th scope="col">ngày tạo</th>
+        <th class="text-center" scope="col">Đang làm dự án</th>
+        <th scope="col">Ngày tạo</th>
         <th scope="col"></th>
       </tr>
     </thead>
@@ -38,12 +37,12 @@
   </table>
 
   <h1>Project table</h1>
-  <table class="table">{{!-- Project table --}}
+  <table class="table custome-table">{{!-- Project table --}}
     <thead>
       <tr>
         <th scope="col">STT</th>
-        <th scope="col">Tên dự án</th>
-        <th scope="col">Mô tả</th>
+        <th class="text-center" scope="col">Tên dự án</th>
+        <th class="text-center" scope="col">Mô tả</th>
         <th scope="col">Ngày tạo</th>
         <th scope="col">Các nhóm thực hiện</th>
         <th scope="col"></th>
@@ -70,13 +69,12 @@
   </table>
 
   <h1>Student table</h1>
-  <table class="table">{{!-- Student table --}}
+  <table class="table custome-table">{{!-- Student table --}}
     <thead>
       <tr>
         <th scope="col">STT</th>
         <th scope="col">Họ và tên</th>
         <th scope="col">Email</th>
-        {{!-- <th scope="col">Mô tả</th> --}}
         <th scope="col">Thành viên nhóm</th>
         <th scope="col">Mã sinh viên</th>
         <th scope="col"></th>
@@ -89,7 +87,6 @@
         <td>{{sum @index 1}}</td>
         <td>{{this.name}}</td>
         <td>{{this.email}}</td>
-        {{!-- <td>{{breaklines this.description}}</td> --}}
         <td>{{this.labGroupId}}</td>
         <td>{{this.mssv}}</td>
         <td>
@@ -100,4 +97,3 @@
     </tbody>
   </table>
 </div>
-

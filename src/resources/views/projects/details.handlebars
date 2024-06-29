@@ -3,8 +3,8 @@
 {{else}}
 {{> headerUserView}}
 {{/if}}
-<div class="content-details">
-    <h1 class="name-details" style="text-align: center;">{{project.name}}</h1>
+<div class="container content-body">
+    <h1 class="name-details">{{project.name}}</h1>
     <div>
         <div style="text-align: center;">
             <img src="../../../img/projects/{{project.image}}" style=" height: 451px; " alt="ơ không sao ra">
@@ -12,7 +12,6 @@
         <div>
             <h2>Mô tả</h2>
             <p> {{breaklines project.description}}</p>
-            <p>Ngày tạo: {{project.createdAt}}</p>
             <h2>Nhóm thực hiện</h2>
             <table class="table">{{!-- Team table --}}
                 <thead>
@@ -21,7 +20,7 @@
                         <th scope="col">ID</th>
                         <th scope="col">Tên nhóm</th>
                         <th scope="col">Mô tả</th>
-                        <th scope="col">ngày tạo</th>
+                       
                     </tr>
                 </thead>
                 <tbody>
@@ -31,12 +30,11 @@
                         <td>{{this.id}}</td>
                         <td>{{this.name}}</td>
                         <td>{{breaklines this.description}}</td>
-                        <td>{{this.createdAt}}</td>
-                        
                     </tr>
                     {{/each}}
                 </tbody>
             </table>
+            <p> <strong>Ngày tạo: </strong>{{project.createdAt}}</p>
         </div>
     </div>
 </div>

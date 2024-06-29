@@ -1,17 +1,15 @@
-<div class="mt-4">
+<div class="content-body container">
   <h1>Team table</h1>
-  <table class="table">{{!-- Team table --}}
+  <table class="table custome-table">{{!-- Team table --}}
     <thead>
       <tr>
         <th scope="col">STT</th>
         <th scope="col">ID</th>
         <th scope="col">Tên nhóm</th>
-        <th scope="col">Mô tả</th>
+        <th class="text-center" scope="col">Mô tả</th>
         <th scope="col">Số thành viên</th>
-        <th scope="col">Đang làm dự án</th>
-        <th scope="col">ngày tạo</th>
-        <th scope="col"></th>
-        <th scope="col"></th>
+        <th class="text-center" scope="col">Đang làm dự án</th>
+        <th scope="col">Ngày tạo</th>
         <th scope="col"></th>
       </tr>
     </thead>
@@ -30,14 +28,12 @@
         </td>
         <td>{{this.createdAt}}</td>
         <td>
-          <a href="/groups/{{this.id}}/edit" class="btn btn-link">Sửa</a>
-        </td>
-        <td>
-          <a href="" class="btn btn-link" data-toggle="modal" data-id="{{this.id}}"
-            data-target="#delete-groups-modal">Xóa</a>
-        </td>
-        <td>
-          <a href="/groups/details/{{this.id}}" class="btn btn-link">Chi tiết</a>
+          <div class="btn-group-vertical ">
+            <a href="/groups/{{this.id}}/edit" class="btn btn-secondary btn-sm mb-2">Sửa</a>
+            <a href="#" class="btn btn-secondary btn-sm mb-2" data-toggle="modal" data-id="{{this.id}}"
+              data-target="#delete-groups-modal">Xóa</a>
+            <a href="/groups/details/{{this.id}}" class="btn btn-secondary btn-sm mb-2">Chi tiết</a>
+          </div>
         </td>
       </tr>
       {{/each}}
@@ -45,16 +41,14 @@
   </table>
 
   <h1>Project table</h1>
-  <table class="table">{{!-- Project table --}}
+  <table class="table custome-table">{{!-- Project table --}}
     <thead>
       <tr>
         <th scope="col">STT</th>
-        <th scope="col">Tên dự án</th>
-        <th scope="col">Mô tả</th>
+        <th class="text-center"  scope="col">Tên dự án</th>
+        <th class="text-center"  scope="col">Mô tả</th>
         <th scope="col">Ngày tạo</th>
         <th scope="col">Các nhóm thực hiện</th>
-        <th scope="col"></th>
-        <th scope="col"></th>
         <th scope="col"></th>
       </tr>
     </thead>
@@ -71,14 +65,12 @@
           {{/each}}
         </td>
         <td>
-          <a href="/projects/{{this.id}}/edit" class="btn btn-link">Sửa</a>
-        </td>
-        <td>
-          <a href="" class="btn btn-link" data-toggle="modal" data-id="{{this.id}}"
-            data-target="#delete-projects-modal">Xóa</a>
-        </td>
-        <td>
-          <a href="/projects/details/{{this.id}}" class="btn btn-link">Chi tiết</a>
+          <div class="btn-group-vertical ">
+            <a href="/projects/{{this.id}}/edit" class="btn btn-secondary btn-sm mb-2">Sửa</a>
+            <a href="#" class="btn btn-secondary btn-sm mb-2" data-toggle="modal" data-id="{{this.id}}"
+              data-target="#delete-projects-modal">Xóa</a>
+            <a href="/projects/details/{{this.id}}" class="btn btn-secondary btn-sm mb-2">Chi tiết</a>
+          </div>
         </td>
       </tr>
       {{/each}}
@@ -86,17 +78,14 @@
   </table>
 
   <h1>Student table</h1>
-  <table class="table">{{!-- Student table --}}
+  <table class="table custome-table">{{!-- Student table --}}
     <thead>
       <tr>
         <th scope="col">STT</th>
         <th scope="col">Họ và tên</th>
         <th scope="col">Email</th>
-        {{!-- <th scope="col">Mô tả</th> --}}
         <th scope="col">Thành viên nhóm</th>
         <th scope="col">Mã sinh viên</th>
-        <th scope="col"></th>
-        <th scope="col"></th>
         <th scope="col"></th>
       </tr>
     </thead>
@@ -106,19 +95,17 @@
         <td>{{sum @index 1}}</td>
         <td>{{this.name}}</td>
         <td>{{this.email}}</td>
-        {{!-- <td>{{breaklines this.description}}</td> --}}
         <td>{{this.labGroupId}}</td>
         <td>{{this.mssv}}</td>
         <td>
-          <a href="/students/{{this.id}}/edit" class="btn btn-link">Sửa</a>
+          <div class="btn-group">
+            <a href="/students/{{this.id}}/edit" class="mr-2 btn btn-secondary btn-sm">Sửa</a>
+            <a href="#" class="mr-2 btn btn-secondary btn-sm" data-toggle="modal" data-id="{{this.id}}"
+              data-target="#delete-students-modal">Xóa</a>
+            <a href="/students/details/{{this.id}}" class="mr-2 btn btn-secondary btn-sm">Chi tiết</a>
+          </div>
         </td>
-        <td>
-          <a href="" class="btn btn-link" data-toggle="modal" data-id="{{this.id}}"
-            data-target="#delete-students-modal">Xóa</a>
-        </td>
-        <td>
-          <a href="/students/details/{{this.id}}" class="btn btn-link">Chi tiết</a>
-        </td>
+
       </tr>
       {{/each}}
     </tbody>
@@ -153,7 +140,8 @@
 
 <div> {{!-- DELETE GROUP HANDLE --}}
   <!-- Delete form -->
-  <div class="modal fade" id="delete-groups-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="delete-groups-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -178,7 +166,8 @@
 
 <div> {{!-- DELETE PROJECT HANDLE --}}
   <!-- Delete form -->
-  <div class="modal fade" id="delete-projects-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="delete-projects-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -204,7 +193,7 @@
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     var deleteForm, itemId;
-    
+
     function setupDeleteModal(modalId, formName, buttonId, urlPrefix) {
       var modal = document.getElementById(modalId);
       var deleteButton = document.getElementById(buttonId);

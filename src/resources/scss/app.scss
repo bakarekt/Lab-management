@@ -2,9 +2,7 @@
     height: 200px;
     opacity: 0.5;
 }
-.footer {
-    margin-top: 125px;
-}
+
 .img-details {
     display: flex;
     justify-content: center;
@@ -20,3 +18,17 @@
 .extend-bar {
     transform: translate(-70px, 7px);
 }
+.content-body h1{
+    text-align: center;
+}
+.table{
+    background-color: rgb(247, 247, 249);
+}
+.content-body{
+    margin-top: 40px; /* Khoảng cách với header */
+    margin-bottom: 129px;
+}
+.custome-table  thead th {
+    vertical-align: middle;
+    border-bottom: 2px solid #dee2e6;
+  }
