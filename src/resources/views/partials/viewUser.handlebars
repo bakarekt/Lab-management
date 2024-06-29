@@ -23,13 +23,18 @@
         <td>{{breaklines this.description}}</td>
         <td>{{this.students.length}}</td>
         <td>
-          {{#each this.projects}}
-          {{this.name}}{{#unless @last}}, {{/unless}}
+         {{#each this.projects}}
+          - {{this.name}}
+          {{#unless @last}}
+          <br />
+          {{/unless}}
           {{/each}}
         </td>
         <td>{{this.createdAt}}</td>
         <td>
-          <a href="/groups/details/{{this.id}}" class="btn btn-link">Chi tiết</a>
+          <div class="btn-group">
+            <a href="/groups/details/{{this.id}}" class="mr-2 btn btn-secondary btn-sm">Chi tiết</a>
+          </div>
         </td>
       </tr>
       {{/each}}
@@ -57,11 +62,16 @@
         <td>{{this.createdAt}}</td>
         <td>
           {{#each this.lab_groups}}
-          {{this.name}}{{#unless @last}}, {{/unless}}
+          {{this.name}}
+          {{#unless @last}}
+          <br />
+          {{/unless}}
           {{/each}}
         </td>
         <td>
-          <a href="/projects/details/{{this.id}}" class="btn btn-link">Chi tiết</a>
+          <div class="btn-group">
+            <a href="/projects/details/{{this.id}}" class="mr-2 btn btn-secondary btn-sm">Chi tiết</a>
+          </div>
         </td>
       </tr>
       {{/each}}
@@ -90,7 +100,9 @@
         <td>{{this.labGroupId}}</td>
         <td>{{this.mssv}}</td>
         <td>
-          <a href="/students/details/{{this.id}}" class="btn btn-link">Chi tiết</a>
+          <div class="btn-group">
+            <a href="/students/details/{{this.id}}" class="mr-2 btn btn-secondary btn-sm">Chi tiết</a>
+          </div>
         </td>
       </tr>
       {{/each}}

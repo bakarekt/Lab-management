@@ -1,3 +1,6 @@
 node_modules/
-src/public/img/students
-src/public/img/projects
+src/public/img/projects/*
+!src/public/img/projects/default_project.png
+
+src/public/img/students/*
+!src/public/img/students/default_student.png

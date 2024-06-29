@@ -1,24 +1,23 @@
-{{> headerUserView}}
-<div class="container content-body">
-    <div class="row justify-content-center" >
-        <div class="col-md-6">
-            <h1 class="">Login</h1>
+<div class="login-page d-flex align-items-center">
+    <div class="row w-100">
+        <div class="col-md-9 d-flex justify-content-center">
+            <img src="../../../img/login_image.png" alt="Project Management System" class="img-fluid">
+        </div>
+        <div class="col-md-3 d-flex flex-column justify-content-center">
+            <h1 class="text-center">Login</h1>
             {{#if error}}
-            <p style="color: red;">{{error}}</p>
+            <p style="color: red;" class="text-center">{{error}}</p>
             {{/if}}
             <form action="/auth/login" method="POST" class="mt-4">
                 <div class="form-group">
                     <label for="exampleDropdownFormEmail2">Email address</label>
-                    <input type="email" name="email" class="form-control" id="exampleDropdownFormEmail2"
-                        placeholder="email@hust.edu.vn" required>
+                    <input type="email" name="email" class="form-control" id="exampleDropdownFormEmail2" placeholder="email@hust.edu.vn" required>
                 </div>
                 <div class="form-group">
                     <label for="exampleDropdownFormPassword2">Password</label>
-                    <input type="password" name="mssv" class="form-control" id="exampleDropdownFormPassword2"
-                        placeholder="MSSV" required>
+                    <input type="password" name="mssv" class="form-control" id="exampleDropdownFormPassword2" placeholder="MSSV" required>
                 </div>
-
-                <button type="submit" class="btn btn-primary mt-3">Sign in</button>
+                <button type="submit" class="btn btn-primary mt-3 w-100">Sign in</button>
             </form>
         </div>
     </div>

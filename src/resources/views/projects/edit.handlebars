@@ -1,5 +1,5 @@
 {{> header}}
-<div class="mt-4">
+<div class="container content-body">
     <h2 style="margin-bottom: 24px;">Sửa project</h2>
     <form method="POST" action="/projects/{{project.id}}?_method=PUT" enctype="multipart/form-data">
         <div class="form-row">
@@ -19,7 +19,7 @@
             </div>
         </div>
        
-        <button type="submit" class="btn btn-primary">Sửa</button>
+        <button type="submit" class="btn btn-primary mt-4">Sửa</button>
     </form>
 </div>
 

@@ -1,5 +1,5 @@
 {{> header}}
-<div class="mt-4">
+<div class="container content-body">
     <h2 style="margin-bottom: 24px;">Cập nhật thông tin sinh viên</h2>
     <form method="POST" action="/students/{{student.id}}?_method=PUT" enctype="multipart/form-data">
         <div class="form-row">
@@ -38,6 +38,7 @@
             <div class="form-group col-md-6">
                 <label for="image">Ảnh</label>
                 <input name="image" id="image" type="file" value="{{student.image}}"class="form-control">
+                <img src="../../../img/students/{{student.image}}" style="width: 50%;" alt="ảnh nè">
             </div>
             <div class="form-group col-md-6">
                 <label for="inputEmail4">isAdmin(0/1) </label>

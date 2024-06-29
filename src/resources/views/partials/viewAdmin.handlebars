@@ -16,14 +16,17 @@
     <tbody>
       {{#each groups}}
       <tr>
-        <td>{{sum @index 1}}</td>
+      <td>{{sum @index 1}}</td>
         <td>{{this.id}}</td>
         <td>{{this.name}}</td>
         <td>{{breaklines this.description}}</td>
         <td>{{this.students.length}}</td>
         <td>
           {{#each this.projects}}
-          {{this.name}}{{#unless @last}}, {{/unless}}
+          - {{this.name}}
+          {{#unless @last}}
+          <br />
+          {{/unless}}
           {{/each}}
         </td>
         <td>{{this.createdAt}}</td>
@@ -45,8 +48,8 @@
     <thead>
       <tr>
         <th scope="col">STT</th>
-        <th class="text-center"  scope="col">Tên dự án</th>
-        <th class="text-center"  scope="col">Mô tả</th>
+        <th class="text-center" scope="col">Tên dự án</th>
+        <th class="text-center" scope="col">Mô tả</th>
         <th scope="col">Ngày tạo</th>
         <th scope="col">Các nhóm thực hiện</th>
         <th scope="col"></th>
@@ -61,7 +64,10 @@
         <td>{{this.createdAt}}</td>
         <td>
           {{#each this.lab_groups}}
-          {{this.name}}{{#unless @last}}, {{/unless}}
+          {{this.name}}
+          {{#unless @last}}
+          <br />
+          {{/unless}}
           {{/each}}
         </td>
         <td>

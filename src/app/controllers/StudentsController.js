@@ -26,15 +26,20 @@ class StudentsController {
     // PUT method students/:id
     submit(req, res, next) {
         const groupId = req.body.labGroupId; // Assuming you pass labGroupId in the request body
-
+        if (req.file) {
+            req.body.image = req.file.filename; // Sử dụng file đã tải lên nếu có
+        }
         // Kiểm tra sự tồn tại của nhóm
         Group.findByPk(groupId)
             .then((group) => {
                 if (!group) {
                     return res.status(404).send('Nhóm không tồn tại');
                 }
-                req.body.image = req.file.filename
-                // Nhóm tồn tại, tiến hành cập nhật
+                if (req.body.image === 'default_student.png' && student.image !== 'default_student.png') {
+                    // Nếu req.body.image là mặc định nhưng sinh viên có ảnh từ trước, giữ nguyên ảnh cũ
+                    req.body.image = student.image;
+                }
+               
                 return Student.update(req.body, {
                     where: { id: req.params.id },
                 });
@@ -53,8 +58,11 @@ class StudentsController {
         res.render('./students/create');
     }
     save(req, res, next) {
-        // res.json(req.body)
-        req.body.image = req.file.filename
+        if (!req.file) {
+            req.body.image = 'default_student.png';
+        }else{
+            req.body.image = req.file.filename
+        }
         Student.create(req.body)
             .then(() => res.redirect('/'))
             .catch(next);

@@ -42,13 +42,18 @@ class ProjectsController {
     }
     // PUT method students/:id
     submit(req, res, next) {
-        req.body.image = req.file.filename
+        if (req.file) {
+            req.body.image = req.file.filename; // Sử dụng file đã tải lên nếu có
+        }
         sequelize.transaction(async (t) => {
             try {
                 const projectId = req.params.id;
                 const { name, description, image, lab_groups } = req.body;
-
                 // Cập nhật thông tin của group
+                if (req.body.image === 'default_student.png' && student.image !== 'default_student.png') {
+                    // Nếu req.body.image là mặc định nhưng sinh viên có ảnh từ trước, giữ nguyên ảnh cũ
+                    req.body.image = student.image;
+                }
                 await Project.update(
                     { name, description, image },
                     { where: { id: projectId }, transaction: t },
@@ -99,32 +104,15 @@ class ProjectsController {
         res.render('./projects/create');
     }
     save(req, res, next) {
-        req.body.image = req.file.filename
+        if (!req.file) {
+            req.body.image = 'default_project.png'
+        }else{
+            req.body.image = req.file.filename
+        }
         Project.create(req.body)
             .then(() => res.redirect('/'))
             .catch(next);
     }
-    // GET method students/details/:id
-    // details(req, res, next) {
-    //     Project.findByPk(req.params.id)
-    //         .then((project) => {
-
-    //             if (!project) {
-    //                 return res.status(404).send('ĐI LẠC R');
-    //             }
-
-    //                 res.render('./projects/details', {
-
-    //                     project: sequelizeToObject(project),
-    //                 });
-
-
-    //         })
-    //         .catch((err) => {
-    //             console.error('Lỗi khi tìm kiếm khóa học:', err);
-    //             next(err);
-    //         });
-    // }
     details(req, res, next) {
         const projectId = req.params.id;
     

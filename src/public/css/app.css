@@ -33,3 +33,11 @@
 .custome-table thead th {
   vertical-align: middle;
   border-bottom: 2px solid #dee2e6; }
+
+.login-page {
+  height: 80vh;
+  /* Để trang login chiếm toàn bộ chiều cao màn hình */ }
+
+.login-page .img-fluid {
+  height: 100vh;
+  /* Đảm bảo hình ảnh không quá lớn */ }
