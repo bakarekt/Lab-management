@@ -89,6 +89,7 @@ npm install
 ```
 
 ## Run
+Yype email and mssv and isAdmin in Database
 ```bash
 npm start
 ```
