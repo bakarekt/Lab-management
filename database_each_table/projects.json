@@ -1,0 +1,34 @@
+[
+	{
+		"id" : 1,
+		"name" : "Xây dựng hệ thống quản lý thiết bị y tế",
+		"description" : "Hệ thống quản lý các trang thiết bị y tế trong các bệnh viện hoặc các cơ sở y tế bao gồm một số chức năng chính\r\n1. Quản lý thiết bị\r\n2. Quản lý vật tư\r\n3. Quản lý kho hàng\r\n4. Quản lý người dùng\r\n5. Thống kê",
+		"createdAt" : "2024-06-19",
+		"updatedAt" : "2024-06-28",
+		"image" : null
+	},
+	{
+		"id" : 2,
+		"name" : "Xây dựng hệ thống phân loại tín hiệu điện tim loạn nhịp",
+		"description" : "Hệ thống phân loại tín hiệu điện tim loạn nhịp:\r\n1.Thu thập dữ liệu\r\n2. Tiền xử lý dữ liệu\r\n3. Trích xuất đặc trưng\r\n4. Chọn mô hình phân loại\r\n5. Huấn luyện mô hình\r\n6. Đánh giá hiệu suất\r\n7. Triển khai hệ thống",
+		"createdAt" : "2024-06-19",
+		"updatedAt" : "2024-06-28",
+		"image" : null
+	},
+	{
+		"id" : 3,
+		"name" : "Pancreatic cancer detection based on CT Images using Machine Learning",
+		"description" : "To detect pancreatic cancer based on CT images using machine learning, several essential functions are involved:\r\n\r\n1. Data Collection\r\n2. Preprocessing\r\n3. Feature Extraction\r\n4. Model Selection\r\n5. Training\r\n6. Evaluation\r\n7. Deployment",
+		"createdAt" : "2024-06-28",
+		"updatedAt" : "2024-06-28",
+		"image" : null
+	},
+	{
+		"id" : 4,
+		"name" : "Gesture classsification by processing EMG using Deep Learning",
+		"description" : "Gesture classification using electromyography (EMG) and deep learning, there are several key functions involved:\r\n\r\n1. Data Collection\r\n2. Feature Extraction\r\n3. Model Selection\r\n4. Training\r\n5. Evaluation\r\n6. Inference",
+		"createdAt" : "2024-06-28",
+		"updatedAt" : "2024-06-28",
+		"image" : null
+	}
+]

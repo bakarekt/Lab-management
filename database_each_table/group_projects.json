@@ -1,0 +1,26 @@
+[
+	{
+		"labGroupId" : 1,
+		"projectId" : 1
+	},
+	{
+		"labGroupId" : 2,
+		"projectId" : 2
+	},
+	{
+		"labGroupId" : 3,
+		"projectId" : 2
+	},
+	{
+		"labGroupId" : 3,
+		"projectId" : 3
+	},
+	{
+		"labGroupId" : 4,
+		"projectId" : 3
+	},
+	{
+		"labGroupId" : 4,
+		"projectId" : 4
+	}
+]

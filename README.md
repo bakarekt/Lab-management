@@ -12,6 +12,7 @@
 
 # Instruct
 # Node js 14.7.0
+Correct version required !!!
 ## Query mysql
 
 Set up mysql in link: [Setup MySQL](https://drive.google.com/file/d/1MjvESVyQR_AgovRXl_KEnkTnpnA7ydRt/view?usp=sharing)
@@ -66,6 +67,9 @@ CREATE TABLE group_projects (
     FOREIGN KEY (projectId) REFERENCES projects(id)
 );
 ```
+#### Default database (option, no require)
+Import each json file in database_each_table to management_lab_dev 
+
 ### Database like
 ![Mô tả ảnh](https://github.com/Quanghusst/Lab-management/blob/main/database%20lab%20management.png)
 

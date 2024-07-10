@@ -1,0 +1,30 @@
+[
+	{
+		"id" : 1,
+		"name" : "Nhóm 1",
+		"description" : "Chuyên về quản lý thiết bị kinh tế",
+		"createdAt" : "2024-06-19",
+		"updatedAt" : "2024-06-28"
+	},
+	{
+		"id" : 2,
+		"name" : "Nhóm 2",
+		"description" : "Tập trung vào việc xây dựng hệ thống xử lý tín hiệu",
+		"createdAt" : "2024-06-19",
+		"updatedAt" : "2024-06-28"
+	},
+	{
+		"id" : 3,
+		"name" : "Nhóm 3",
+		"description" : "Chuyên về xử lý tín hiệu và AI",
+		"createdAt" : "2024-06-28",
+		"updatedAt" : "2024-06-28"
+	},
+	{
+		"id" : 4,
+		"name" : "Nhóm 4",
+		"description" : "Tập trung vào việc áp dụng công nghệ học máy và học sâu vào lĩnh vực y tế",
+		"createdAt" : "2024-06-28",
+		"updatedAt" : "2024-06-28"
+	}
+]
