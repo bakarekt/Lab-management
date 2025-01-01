@@ -58,7 +58,7 @@ class ProjectsController {
                     { name, description, image },
                     { where: { id: projectId }, transaction: t },
                 );
-
+ 
                 // Cập nhật thông tin của projects
                 if (Array.isArray(lab_groups)) {
                     for (const lab_group of lab_groups) {

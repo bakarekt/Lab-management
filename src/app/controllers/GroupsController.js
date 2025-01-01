@@ -73,7 +73,7 @@ class GroupsController {
                 { name, description },
                 { where: { id: groupId } },
             );
-
+            res.json(req.body);
             // Xóa tất cả các mối quan hệ hiện tại giữa nhóm và các dự án
             await GroupProject.destroy({
                 where: { labGroupId: groupId },

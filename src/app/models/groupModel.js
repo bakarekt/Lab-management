@@ -28,7 +28,7 @@ Group.init(
         modelName: 'lab_groups',
     },
 );
-
+//sfdsfsdgd
 Group.Student = Group.hasMany(Student);
 Student.Group = Student.belongsTo(Group);
 
